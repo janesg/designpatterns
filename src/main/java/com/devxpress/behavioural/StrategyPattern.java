@@ -3,6 +3,35 @@ package com.devxpress.behavioural;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Strategy - Behavioural
+ *
+ * Enables selection of an algorithm at runtime:
+ *  - defines a family of algorithms
+ *  - encapsulates each algorithm
+ *  - makes the algorithms interchangeable within that family
+ *
+ * Strategy pattern lets the algorithm vary independently from clients that use it.
+ *
+ * An object controls which of a family of methods is called. Each method is in its own class
+ * that extends a common abstract base class/interface.
+ *
+ * Recognizeable by behavioral methods in an abstract/interface type
+ * which invokes a method in an implementation of a different abstract/interface
+ * type which has been passed-in as method argument into the strategy implementation.
+ *
+ * Usage examples in Java APIs:
+ *
+ * java.util.Comparator#compare()
+ *  - executed by among others Collections#sort().
+ *
+ * javax.servlet.http.HttpServlet
+ *  - the service() and all doXXX() methods take HttpServletRequest and HttpServletResponse
+ *    and the implementor has to process them (and not to get hold of them as instance variables!).
+ *
+ * javax.servlet.Filter#doFilter()
+ */
+
 public class StrategyPattern {
 
     public static void main(final String[] arguments) {
@@ -28,7 +57,6 @@ public class StrategyPattern {
         secondCustomer.printBill();
     }
 }
-
 
 class Customer {
 
@@ -72,7 +100,6 @@ class NormalStrategy implements BillingStrategy {
     public double getActPrice(final double rawPrice) {
         return rawPrice;
     }
-
 }
 
 // Strategy for Happy hour (50% discount)
@@ -82,5 +109,4 @@ class HappyHourStrategy implements BillingStrategy {
     public double getActPrice(final double rawPrice) {
         return rawPrice*0.5;
     }
-
 }
