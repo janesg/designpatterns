@@ -119,7 +119,6 @@ class Fruit implements ItemElement {
 interface ShoppingCartVisitor {
 
     int visit(Book book);
-
     int visit(Fruit fruit);
 }
 
